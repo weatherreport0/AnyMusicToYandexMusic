@@ -1,0 +1,8 @@
+.env
+tokens.json
+.claude/
+cookies.txt
+.chrome_profile/
+ffmpeg/
+__pycache__/
+*.pyc
