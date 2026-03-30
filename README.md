@@ -41,7 +41,7 @@ Telegram-бот для загрузки музыки с YouTube в плейли�
 ### Установка
 
 ```bash
-git clone https://github.com/your-username/AnyMusicToYandexMusic.git
+git clone https://github.com/555erop333/AnyMusicToYandexMusic.git
 cd AnyMusicToYandexMusic
 pip install -r requirements.txt
 ```
