@@ -71,6 +71,27 @@ scp cookies.txt server:/path/to/bot/
 python bot.py
 ```
 
+## Бот во ВКонтакте
+
+Тот же сценарий работает в сообщениях сообщества ВК (`vk_bot.py`, отдельный процесс).
+
+1. Создай сообщество, включи «Сообщения сообщества» и в «Настройки для бота» — «Возможности ботов».
+2. «Работа с API» → Long Poll API: включи, версия 5.199, типы событий — «Входящее сообщение» и «Действие с сообщением».
+3. «Работа с API» → «Ключи доступа»: создай ключ с правом «сообщения сообщества» и впиши в `.env`:
+
+```
+VK_GROUP_TOKEN=vk1.a....
+```
+
+4. Запусти `python vk_bot.py`.
+
+Аккаунты Яндекс Музыки для ВК и Telegram привязываются отдельно (`/token` в каждом).
+
+## Прокси
+
+Если с сервера недоступны Telegram и YouTube, укажи в `.env` `PROXY_URL=socks5h://127.0.0.1:1080` —
+через него пойдут Telegram и YouTube; Яндекс Музыка и ВК идут напрямую.
+
 ## Получение токенов
 
 ### Telegram Bot Token
@@ -90,7 +111,11 @@ https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418a
 ## Структура проекта
 
 ```
-├── bot.py              # Основной код бота
+├── core.py             # Общая логика: YouTube, Яндекс Музыка, токены
+├── bot.py              # Telegram-бот
+├── vk_bot.py           # ВК-бот
+├── test_vk_bot.py      # Офлайн-проверка сценария ВК-бота
+├── ymbot-vk.service    # systemd-юнит ВК-бота
 ├── setup_cookies.py    # Одноразовая настройка YouTube cookies
 ├── start.bat           # Лаунчер для Windows
 ├── requirements.txt    # Python-зависимости

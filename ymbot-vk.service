@@ -1,0 +1,15 @@
+[Unit]
+Description=AnyMusic to Yandex Music VK Bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=egor
+WorkingDirectory=/home/egor/anymusictoyandexmusic
+ExecStart=/home/egor/anymusictoyandexmusic/venv/bin/python vk_bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

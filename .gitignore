@@ -1,7 +1,7 @@
 .env
 tokens.json
 .claude/
-cookies.txt
+cookies*.txt
 .chrome_profile/
 ffmpeg/
 __pycache__/

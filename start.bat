@@ -15,7 +15,7 @@ if not exist ".env" (
 )
 
 echo Installing dependencies...
-pip install -r requirements.txt -q
+pip install -U -r requirements.txt -q
 if errorlevel 1 (
     echo ERROR: failed to install dependencies.
     pause
